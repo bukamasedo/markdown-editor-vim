@@ -1,11 +1,21 @@
+import React, { useState, useCallback } from 'react'
+import Editor from './Editor'
+import Preview from './Preview'
 import './app.css'
-import React from 'react'
 
-const App = () => {
+const App: React.FC = () => {
+  const [doc, setDoc] = useState<string>('# Hello!!\n')
+
+  const handleDocChange = useCallback((newDoc: string) => {
+    setDoc(newDoc)
+  }, [])
 
   return (
     <div className='app'>
-      test
+      <div className='editor-wrap'>
+        <Editor onChange={handleDocChange} initialDoc={doc} />
+        <Preview doc={doc} />
+      </div>
     </div>
   )
 }

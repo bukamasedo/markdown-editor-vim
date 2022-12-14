@@ -1,8 +1,10 @@
 .app {
   background-color: transparent;
-  display: flex;
-  flex-direction: row;
   height: 100%;
+}
+
+.editor-wrap {
+  display: flex;
 }
 
 button {
